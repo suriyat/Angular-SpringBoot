@@ -1,0 +1,32 @@
+<nav style="background: darkcyan" class="navbar navbar-expand-sm">
+  <a class="navbar-brand remove" href="#">Home</a>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a
+        class="nav-link remove"
+        routerLink="employees"
+        routerLinkActive="active"
+        >Employee List</a
+      >
+    </li>
+    <li>
+      <a
+        class="nav-link remove"
+        routerLink="createEmployee"
+        routerLinkActive="active"
+        >Create Employee</a
+      >
+    </li>
+  </ul>
+</nav>
+
+<h1 class="text-center">{{ title }}</h1>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<footer class="footer">
+  <div>
+    <a class="remove" routerLink="/">Contact Us.</a>
+  </div>
+</footer>
