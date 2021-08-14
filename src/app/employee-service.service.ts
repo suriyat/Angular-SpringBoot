@@ -10,7 +10,10 @@ export class EmployeeService {
 
 baseURL= "http://localhost:8080/api/v1/getAllEmployess";
 postURL= "http://localhost:8080/api/v1/createEmployee"
-
+putURL= "http://localhost:8080/api/v1/updateEmployee/{id}";
+getById="http://localhost:8080/api/v1/findEmployee/";
+alterEmp = "http://localhost:8080/api/v1/updateEmployee/";
+delete="http://localhost:8080/api/v1/deleteEmployee";
   constructor(public http:HttpClient) { }
 
   getAllEmployeeList():Observable<Employee[]>{
@@ -19,5 +22,16 @@ postURL= "http://localhost:8080/api/v1/createEmployee"
 
   createEmployee(employee: Employee):Observable<any>{
       return this.http.post(this.postURL,employee);
+  }
+
+  getEmployeeId(id:number):Observable<Employee>{
+    return this.http.get<Employee>(`${this.getById}/${id}`);
+
+  }
+  updateEmployee(id:number, employee:Employee):Observable<Employee>{
+    return this.http.put<Employee>(`${this.alterEmp}/${id}`,employee);
+  }
+  deleteEmplyoyee(id:number):Observable<Object>{
+    return this.http.delete<Object>(`${this.delete}/${id}`);
   }
 }
